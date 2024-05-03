@@ -30,14 +30,14 @@ function init(){
             prefix: '',
             type: 'input',
             validate: i => i.length !== 1 ? false : true,
-            message: 'Player #1'.brightYellow +'\nPlease enter any single character you would like to use for a symbol: '
+            message: 'Player #1'.brightYellow +'\nPlease enter any single character \nyou would like to use for a symbol: '
         },
         {
             name: 'player2Symbol',
             prefix: '',
             type: 'input',
             validate: i => i.length !== 1 ? false : true,
-            message: '\nPlayer #2'.brightRed + '\nPlease enter any single character you would like to use for a symbol: '
+            message: '\nPlayer #2'.brightRed + '\nPlease enter any single character \nyou would like to use for a symbol: '
         }
 ]).then(a=>{
     players.player1.symbol = a.player1Symbol
@@ -319,7 +319,7 @@ function drawBoard(){
 function takeTurn(){
     drawBoard()
     if (players.player1.turn){
-        console.log('\nPlayer #1 it\'s your turn!'.brightYellow)
+        console.log(`\nPlayer #1 it\'s your turn!  "${players.player1.symbol}"`.brightYellow)
         inquirer.prompt({
             name: 'chosenSpace',
             type: 'list',
@@ -338,7 +338,7 @@ function takeTurn(){
             resolveTurn('player1')
         })
     }else if (players.player2.turn){
-        console.log('\nPlayer #2 it\'s your turn!'.brightRed)
+        console.log(`\nPlayer #2 it\'s your turn!  "${players.player2.symbol}"`.brightRed)
         inquirer.prompt({
             name: 'chosenSpace',
             type: 'list',
